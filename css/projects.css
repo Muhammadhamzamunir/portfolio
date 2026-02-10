@@ -1,0 +1,183 @@
+/* PROJECTS – Detailed cards, tech badges, multiple glow effects */
+.projects-section {
+  position: relative;
+}
+
+/* Ambient orb behind projects section */
+.projects-glow-orb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, var(--accent-glow) 0%, transparent 60%);
+  opacity: 0.2;
+  pointer-events: none;
+  filter: blur(70px);
+  z-index: -1;
+}
+
+.section-label-glow {
+  text-shadow: 0 0 24px var(--accent-glow), 0 0 48px rgba(99, 102, 241, 0.2);
+}
+
+.projects-title-glow {
+  text-shadow: 0 0 40px rgba(99, 102, 241, 0.2), 0 0 80px rgba(99, 102, 241, 0.1);
+}
+
+.projects-section h2 {
+  margin-bottom: 8px;
+}
+
+.projects-lead {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.project-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 36px 32px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+/* Left-edge accent glow on card */
+.project-card-glow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  opacity: 0.4;
+  border-radius: 14px 0 0 14px;
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: opacity 0.25s ease;
+}
+
+.project-card:hover.project-card-glow::before {
+  opacity: 0.9;
+  box-shadow: 0 0 30px var(--accent-glow-strong);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-accent);
+  box-shadow: var(--glow-soft), 0 0 80px rgba(99, 102, 241, 0.12), 0 20px 56px rgba(0, 0, 0, 0.3);
+}
+
+.project-num {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.project-num-glow {
+  text-shadow: 0 0 16px var(--accent-glow);
+}
+
+.project-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+.project-tagline {
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-weight: 500;
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.project-desc {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.project-meta {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.project-meta strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Tech badges */
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tech-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 999px;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.1);
+}
+
+.tech-badge:hover {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 0 24px var(--accent-glow), 0 0 40px rgba(99, 102, 241, 0.15);
+  transform: translateY(-1px);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: gap 0.2s ease, text-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.project-link-glow {
+  text-shadow: 0 0 16px var(--accent-glow);
+}
+
+.project-link:hover {
+  gap: 12px;
+  text-shadow: 0 0 24px var(--accent-glow), 0 0 40px var(--accent-glow);
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+
+.project-link i {
+  font-size: 0.8rem;
+}

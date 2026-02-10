@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Hamza Munir | Portfolio</title>
+  <meta name="description" content="Muhammad Hamza Munir is a frontend and full stack developer with a passion for creating user-friendly and efficient web applications." />
+  <meta name="keywords" content="Muhammad Hamza Munir, frontend developer, full stack developer, web developer, portfolio" />
+  <meta name="author" content="Muhammad Hamza Munir" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="google" content="notranslate" />
+  <meta name="google-site-verification" content="1234567890" />
+  <link rel="icon" href="assets/images/hamza.png" type="image/png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@300;400;600&family=Titan+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/education.css" />
+  <link rel="stylesheet" href="css/experience.css" />
+  <link rel="stylesheet" href="css/skills.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div id="hero-root"></div>
+  <div id="about-root"></div>
+  <div id="experience-root"></div>
+  <div id="education-root"></div>
+  <div id="skills-root"></div>
+  <div id="projects-root"></div>
+  <div id="contact-root"></div>
+
+  <script>
+    (function () {
+      var components = [
+        { id: "hero-root", url: "components/hero.html" },
+        { id: "about-root", url: "components/about.html" },
+        { id: "experience-root", url: "components/experience.html" },
+        { id: "education-root", url: "components/education.html" },
+        { id: "skills-root", url: "components/skills.html" },
+        { id: "projects-root", url: "components/projects.html" },
+        { id: "contact-root", url: "components/contact.html" },
+      ];
+
+      function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+          var s = document.createElement("script");
+          s.src = src;
+          s.onload = resolve;
+          s.onerror = reject;
+          document.body.appendChild(s);
+        });
+      }
+
+      Promise.all(
+        components.map(function (c) {
+          return fetch(c.url)
+            .then(function (r) { return r.text(); })
+            .then(function (html) {
+              document.getElementById(c.id).innerHTML = html;
+            });
+        })
+      )
+        .then(function () {
+          return loadScript("js/cursor.js");
+        })
+        .then(function () {
+          return loadScript("js/hero.js");
+        })
+        .then(function () {
+          return loadScript("js/animations.js");
+        })
+        .catch(function (err) {
+          console.warn("Portfolio load error (use a local server if opening from file):", err);
+        });
+    })();
+  </script>
+</body>
+</html>

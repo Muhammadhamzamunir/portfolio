@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 96" fill="none" aria-hidden="true">
+  <!-- Handle -->
+  <path d="M32 52v44l-4-2 4-2 4 2-4 2V52z" fill="#2d2d2d" stroke="#1a1a1a" stroke-width="1"/>
+  <path d="M28 52h8v40h-8z" fill="url(#torch-handle)" opacity="0.9"/>
+  <!-- Grip lines -->
+  <path d="M30 62v2M32 66v2M34 72v2M32 78v2M30 84v2" stroke="#1a1a1a" stroke-width="0.8" stroke-linecap="round"/>
+  <!-- Flame outer glow -->
+  <ellipse cx="32" cy="28" rx="14" ry="22" fill="url(#torch-flame-outer)" opacity="0.7"/>
+  <!-- Flame core -->
+  <path d="M32 8c0 0 12 14 12 28 0 8-5 16-12 20-7-4-12-12-12-20C20 22 32 8 32 8z" fill="url(#torch-flame)"/>
+  <!-- Inner flame highlight -->
+  <path d="M32 14c0 0 6 10 6 20 0 4-2 8-6 10-4-2-6-6-6-10 0-10 6-20 6-20z" fill="url(#torch-flame-inner)"/>
+  <defs>
+    <linearGradient id="torch-handle" x1="28" y1="52" x2="36" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3d3d3d"/>
+      <stop offset="1" stop-color="#252525"/>
+    </linearGradient>
+    <linearGradient id="torch-flame-outer" x1="32" y1="6" x2="32" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fef08a"/>
+      <stop offset="0.3" stop-color="#f59e0b"/>
+      <stop offset="0.6" stop-color="#ea580c"/>
+      <stop offset="1" stop-color="#dc2626" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="torch-flame" x1="32" y1="8" x2="32" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fef9c3"/>
+      <stop offset="0.2" stop-color="#fde047"/>
+      <stop offset="0.5" stop-color="#f59e0b"/>
+      <stop offset="0.8" stop-color="#ea580c"/>
+      <stop offset="1" stop-color="#b91c1c" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="torch-flame-inner" x1="32" y1="14" x2="32" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fffbeb"/>
+      <stop offset="0.4" stop-color="#fef08a"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+</svg>

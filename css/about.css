@@ -1,0 +1,74 @@
+/* ABOUT – Layout */
+.about-section {
+  padding-top: 120px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 64px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.about-img-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4), var(--glow-soft);
+  transform-style: preserve-3d;
+}
+
+.about-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 60px rgba(99, 102, 241, 0.08);
+  pointer-events: none;
+}
+
+.about-img-wrap img {
+  width: 100%;
+  height: auto;
+  min-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-content h2 {
+  margin-bottom: 24px;
+}
+
+.about-intro {
+  color: var(--text);
+  line-height: 1.85;
+  margin-bottom: 16px;
+  font-size: 1.08rem;
+}
+
+.about-intro-lead {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.about-detail {
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 16px;
+  font-size: 1.02rem;
+}
+
+.about-detail:last-of-type {
+  margin-bottom: 0;
+}
