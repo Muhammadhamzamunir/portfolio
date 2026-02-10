@@ -461,8 +461,8 @@
 
   .hero-torch-icon {
      top: 6px;
-    right: 6px; 
-     rotate: -45deg; 
+    right: 0px; 
+     rotate: -60deg; 
   }
 
   .hero-torch-svg {
