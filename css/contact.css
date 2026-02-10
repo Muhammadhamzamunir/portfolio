@@ -14,7 +14,7 @@
 }
 
 .contact-card {
-  max-width: 560px;
+  /* max-width: 560px; */
   margin: 0 auto;
   padding: 40px 36px;
   background: var(--card);
@@ -70,8 +70,11 @@
   min-width: 140px;
 }
 
-/* FOOTER */
+/* FOOTER – same width as contact card / project card area */
 footer {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   padding: 40px 24px;
   color: var(--muted);
