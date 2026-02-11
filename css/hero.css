@@ -112,7 +112,8 @@
   font-size: clamp(4.1rem, 8vw, 7.0rem);
   font-weight: 800;
   line-height: 1.05;
-   background: linear-gradient(90deg, #171717 0%, var(--accent) 40%, #a855f7 100%);
+  background: linear-gradient(90deg, rgba(44, 44, 44, 0.8) 20%, rgba(110, 112, 240, 0.8) 40%, rgb(168, 85, 247, 1) 100%);
+   
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -461,10 +462,17 @@
 
   .hero-torch-icon {
      top: 6px;
-    right: 0px; 
-     rotate: -60deg; 
+     right: -6px; 
+     rotate: -25deg !important; 
   }
-
+  .hero-title-piece {
+    background: linear-gradient(90deg, rgba(44, 44, 44, 0.8) 20%, rgba(110, 112, 240, 0.8) 40%, rgb(168, 85, 247) 80%, rgba(110, 112, 240) 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    transform-style: preserve-3d !important;
+  }
   .hero-torch-svg {
     width: 36px;
     max-height: 54px;
@@ -480,6 +488,7 @@
     letter-spacing: 0.12em;
     padding: 6px 14px;
     margin-bottom: 14px;
+    box-shadow: 0 0 28px var(--accent-glow), inset 0 0 20px rgba(99, 102, 241, 0.06);
   }
 
   .hero-subtitle {
@@ -556,6 +565,7 @@
     letter-spacing: 0.1em;
     padding: 6px 12px;
     margin-bottom: 12px;
+    box-shadow: -12px 0 24px rgba(0, 0, 0, 0.5), 0 0 28px var(--accent-glow), inset 0 0 20px rgba(99, 102, 241, 0.06);
   }
 
   .hero-subtitle {

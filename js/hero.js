@@ -40,6 +40,11 @@
   gsap.set(heroTorchIcon, { opacity: 0, x: 60 });
   gsap.set(contentElements, { opacity: 0, y: 8 });
 
+  /* On mobile: more sequential timing so torch → sound → glow → text feels clear */
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const beamTextOverlap = isMobile ? "-=0.25" : "-=0.65"; /* mobile: text starts later, after beam has visibly reached */
+  const beamStartOverlap = isMobile ? "-=0.1" : "-=0.2";
+
   const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
   /* 1) Torch icon comes in from the right */
@@ -62,7 +67,7 @@
       duration: 1,
       ease: "power2.out",
     },
-    "-=0.2"
+    beamStartOverlap
   );
 
   /* 4) As beam “touches” the words, reveal them in order */
@@ -72,10 +77,10 @@
       opacity: 1,
       y: 0,
       duration: 0.5,
-      stagger: 0.12,
+      stagger: isMobile ? 0.15 : 0.12,
       ease: "power2.out",
     },
-    "-=0.65"
+    beamTextOverlap
   );
 
   /* On scroll down: torch off, beam collapse, text fade out. On scroll back up: show again. */
@@ -107,14 +112,14 @@
       opacity: 1,
       duration: 1,
       ease: "power2.out",
-    }, "-=0.2");
+    }, beamStartOverlap);
     enterTl.to(contentElements, {
       opacity: 1,
       y: 0,
       duration: 0.5,
-      stagger: 0.12,
+      stagger: isMobile ? 0.15 : 0.12,
       ease: "power2.out",
-    }, "-=0.65");
+    }, beamTextOverlap);
   }
 
   if (typeof ScrollTrigger !== "undefined") {

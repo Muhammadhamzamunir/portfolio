@@ -7,7 +7,7 @@
   --border-accent: rgba(124, 124, 255, 0.35);
   --text: #f0f0f2;
   --muted: #8a8a96;
-  --accent: #6366f1;
+  --accent: rgb(99, 102, 241);
   --accent-glow: rgba(99, 102, 241, 0.4);
   --accent-glow-strong: rgba(99, 102, 241, 0.6);
   --glow-soft: 0 0 60px rgba(99, 102, 241, 0.15);
