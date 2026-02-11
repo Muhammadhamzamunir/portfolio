@@ -50,6 +50,7 @@
   padding: 36px 32px;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
   overflow: visible;
+  border-radius: 14px;
 }
 
 /* Link preview on hover */
@@ -109,8 +110,8 @@
   content: "";
   position: absolute;
   left: 0;
-  top: 0;
-  bottom: 0;
+  top: 8px;
+  bottom: 14px;
   width: 3px;
   background: linear-gradient(180deg, var(--accent), transparent);
   opacity: 0.4;
