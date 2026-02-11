@@ -1,6 +1,18 @@
 /* Scroll animations & parallax for all sections (excluding hero).
    Uses GSAP ScrollTrigger for smooth, consistent effects across devices. */
 (function () {
+  /* Project preview: lazy-load iframe on first hover (runs regardless of GSAP) */
+  function initProjectPreviews() {
+    document.querySelectorAll(".project-card .project-preview iframe[data-src]").forEach(function (iframe) {
+      var card = iframe.closest(".project-card");
+      if (!card) return;
+      card.addEventListener("mouseenter", function loadPreview() {
+        if (iframe.src) return;
+        iframe.src = iframe.getAttribute("data-src");
+      }, { once: true });
+    });
+  }
+
   function fillSkillBars() {
     document.querySelectorAll(".skill-fill").forEach(function (fill) {
       var pct = fill.getAttribute("data-pct");
@@ -50,9 +62,11 @@
     } else if (skillsGrid) {
       fillSkillBars();
     }
+    initProjectPreviews();
     return;
   }
 
+  initProjectPreviews();
   gsap.registerPlugin(ScrollTrigger);
 
   const ease = "power3.out";
