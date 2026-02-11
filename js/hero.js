@@ -1,7 +1,6 @@
 /* HERO – Torch intro: torch in → sound → beam → text reveal. On scroll down: torch off, beam and text gone. */
 (function () {
   const heroWrapper = document.getElementById("heroWrapper");
-  const heroTorchGroup = document.getElementById("heroTorchGroup");
   const heroTorch = document.getElementById("heroTorch");
   const heroTorchIcon = document.querySelector(".hero-torch-icon");
   const heroExpertise = document.getElementById("heroExpertise");
@@ -33,8 +32,7 @@
     torchSound.play().catch(function () {});
   }
 
-  /* Ensure initial state: group visible for animation, beam collapsed at torch point */
-  if (heroTorchGroup) gsap.set(heroTorchGroup, { opacity: 1 });
+  /* Ensure initial state: beam collapsed at torch point */
   gsap.set(heroTorch, {
     opacity: 1,
     clipPath: "polygon(100% 0%, 100% 0%, 100% 0%)",
@@ -87,7 +85,6 @@
     if (heroHidden) return;
     heroHidden = true;
     torchSoundPlayed = false; /* allow sound again when scrolling back */
-    if (heroTorchGroup) gsap.to(heroTorchGroup, { opacity: 0, duration: 0.4 });
     gsap.to(heroTorchIcon, { opacity: 0, x: 60, duration: 0.35, ease: "power2.in" });
     gsap.to(heroTorch, {
       clipPath: "polygon(100% 0%, 100% 0%, 100% 0%)",
@@ -102,7 +99,6 @@
     if (!heroHidden) return;
     heroHidden = false;
     /* Same sequence as on load: torch → sound → beam → text */
-    if (heroTorchGroup) gsap.set(heroTorchGroup, { opacity: 1 });
     var enterTl = gsap.timeline({ defaults: { ease: "power2.out" } });
     enterTl.to(heroTorchIcon, { opacity: 1, x: 0, duration: 0.5 });
     enterTl.add(function () { playTorchSound(); }, 0.2);
